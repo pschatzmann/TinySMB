@@ -191,7 +191,7 @@ void testOtherServer(const char* share) {
 void setup() {
   root = getenv("SMB_ROOT") ? getenv("SMB_ROOT") : ".";
   if (getenv("SMB_PORT")) port = atoi(getenv("SMB_PORT"));
-  if (getenv("SMB_DEBUG")) SMBLogger::begin(Serial, SMBLogLevel::Debug);
+  if (getenv("SMB_DEBUG")) SMBLogger.begin(Serial, SMBLogLevel::Debug);
   srand(1);
   if (getenv("SMB_SHARE")) {
     testOtherServer(getenv("SMB_SHARE"));

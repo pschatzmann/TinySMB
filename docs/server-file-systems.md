@@ -8,6 +8,21 @@ The server accesses storage through the `FileSystem` interface. All paths start 
 
 Start the SD driver (`SD_MMC.begin()` or `SD.begin()`) before the clients connect.
 
+On boards where the default SDMMC pins are not usable (e.g. they are shared with a camera, PSRAM/OPI flash, or other peripherals), construct `SDMMCFileSystem` with the pins for your board and call `logPinSetup()` from `setup()` (after `SMBLogger.begin()`) to confirm the assignment and the result of `SD_MMC.setPins()` in the log:
+
+```cpp
+SDMMCFileSystem sdFiles(SD_MMC, /*clk*/42, /*cmd*/39, /*d0*/41, /*d1*/40, /*d2*/37, /*d3*/38);
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial) delay(10);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
+  sdFiles.logPinSetup();
+  SD_MMC.begin("/sdcard");
+  ...
+}
+```
+
 ## Any ESP32 file system: `FileSystemFS`
 
 `FileSystemFS` works with every `fs::FS`, for example LittleFS:
@@ -28,6 +43,10 @@ flashFiles.setSpaceCallback([](uint64_t& total, uint64_t& free) {
   return true;
 });
 ```
+
+For file systems mounted on a VFS mountpoint (SD, SD_MMC, FFat), `listDir()` uses the POSIX `opendir()`/`readdir()`/`stat()` API directly instead of the Arduino `fs::File`/`openNextFile()` API. This avoids the overhead of constructing a `File` object per entry and is noticeably faster for directories with many files or subdirectories. File systems without a VFS mountpoint (e.g. LittleFS/SPIFFS in some configurations) automatically fall back to the `fs::File` based listing.
+
+The server also only lists a directory once per open and caches the (pattern matched) entries in memory, instead of re-scanning storage for every SMB page of a large directory listing.
 
 ## Arduino SD API: `FileSystemSD`
 

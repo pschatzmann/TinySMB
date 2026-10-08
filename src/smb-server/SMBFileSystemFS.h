@@ -2,6 +2,8 @@
 #ifdef ESP32
 #include <FS.h>
 #include <unistd.h>
+#include <dirent.h>
+#include <sys/stat.h>
 
 #include "SMBFileSystem.h"
 
@@ -44,6 +46,47 @@ class FileSystemFS : public FileSystem {
 
   bool listDir(const char* path,
                std::function<bool(const FileInfo&)> callback) override {
+    // Fast path for VFS mounted file systems (e.g. SD_MMC, SD, FFat): use
+    // the POSIX opendir()/readdir()/stat() API directly instead of the
+    // Arduino fs::File API. This avoids constructing/destructing a File
+    // object (and its extra Stream/Print indirection) for every entry,
+    // which otherwise dominates the time for directories with many files
+    // or subdirectories.
+    const char* mp = fs.mountpoint();
+    if (mp != nullptr) {
+      std::string full = std::string(mp) + path;
+      DIR* d = opendir(full.c_str());
+      if (d == nullptr) return false;
+      FileInfo info;
+      struct dirent* entry;
+      bool more = true;
+      while (more && (entry = readdir(d)) != nullptr) {
+        if (strcmp(entry->d_name, ".") == 0 ||
+            strcmp(entry->d_name, "..") == 0)
+          continue;
+        info.name = entry->d_name;
+        std::string childPath = full == "/" ? full + info.name
+                                            : full + "/" + info.name;
+        struct stat st;
+        if (::stat(childPath.c_str(), &st) == 0) {
+          info.isDirectory = S_ISDIR(st.st_mode);
+          info.size = info.isDirectory ? 0 : (uint64_t)st.st_size;
+          info.modified = toUnix(st.st_mtime);
+        } else {
+#ifdef DT_DIR
+          info.isDirectory = entry->d_type == DT_DIR;
+#else
+          info.isDirectory = false;
+#endif
+          info.size = 0;
+          info.modified = 0;
+        }
+        more = callback(info);
+      }
+      closedir(d);
+      return true;
+    }
+    // fallback: Arduino fs::File based listing (e.g. LittleFS, SPIFFS)
     fs::File dir = fs.open(path, FILE_READ);
     if (!dir || !dir.isDirectory()) return false;
     FileInfo info;

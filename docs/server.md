@@ -35,7 +35,7 @@ SDMMCFileSystem sdFiles(SD_MMC);
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
   SD_MMC.begin();
   WiFi.begin("ssid", "password");
   while (WiFi.status() != WL_CONNECTED) delay(500);

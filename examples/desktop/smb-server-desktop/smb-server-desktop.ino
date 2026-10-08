@@ -23,7 +23,7 @@ FileSystemPosix files(getenv("SMB_ROOT") ? getenv("SMB_ROOT") : ".");
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
   smbServer.setServerName(smbServerName);
   smbServer.addUser(smbUser, smbPassword);
   smbServer.addShare(shareName, files, shareRoot, shareReadOnly, shareComment);

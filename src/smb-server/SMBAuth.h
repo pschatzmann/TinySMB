@@ -146,7 +146,7 @@ class NtlmAuth {
     return der(0xA1, der(0x30, seq));
   }
 
-  static void avPair(Writer& w, uint16_t id, const std::string& value) {
+  static void avPair(Writer<>& w, uint16_t id, const std::string& value) {
     w.u16(id);
     size_t lenPos = w.pos();
     w.u16(0);

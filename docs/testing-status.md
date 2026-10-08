@@ -13,6 +13,10 @@ These tests run with `ctest` (see [desktop.md](desktop.md)):
 
 ## Manual tests
 
+Done:
+
+- [x] Server on a real ESP32 with SD_MMC, connected from Linux (`mount -t cifs`/`smbclient`)
+
 Still to be done:
 
 - [ ] Server with the Linux kernel client (`mount -t cifs`)

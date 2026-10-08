@@ -15,6 +15,7 @@
 #if defined(ESP32)
 #include "smb-server/SMBFileSystemFS.h"
 #include "smb-client/SMBClientFS.h"
+#include "sdkconfig.h"
 #endif
 #if defined(ESP32) || defined(IS_DESKTOP)
 #include "smb-server/SMBFileSystemPosix.h"

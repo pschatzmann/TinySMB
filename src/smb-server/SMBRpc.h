@@ -72,7 +72,7 @@ class SrvSvc {
   }
 
  protected:
-  static void header(Writer& w, uint8_t type, uint32_t callId) {
+  static void header(Writer<>& w, uint8_t type, uint32_t callId) {
     w.u8(5);
     w.u8(0);
     w.u8(type);
@@ -163,7 +163,7 @@ class SrvSvc {
   }
 
   /// NDR conformant varying string (including the null terminator)
-  static void string(Writer& w, const std::string& s) {
+  static void string(Writer<>& w, const std::string& s) {
     std::vector<uint8_t> tmp;
     Writer t(tmp);
     size_t n = t.utf16(s, true) / 2;
@@ -176,7 +176,7 @@ class SrvSvc {
 
   static bool netShareEnumAll(const Reader& in,
                               const std::vector<ShareEntry>& shares,
-                              Writer& w) {
+                              Writer<>& w) {
     size_t off = skipUniqueString(in, 0);
     uint32_t level = in.u32(off);
     if (in.hasError()) return false;
@@ -215,7 +215,7 @@ class SrvSvc {
 
   static bool netShareGetInfo(const Reader& in,
                               const std::vector<ShareEntry>& shares,
-                              Writer& w) {
+                              Writer<>& w) {
     size_t off = skipUniqueString(in, 0);
     std::string name = readString(in, off);
     off = skipString(in, off);
@@ -248,7 +248,7 @@ class SrvSvc {
   }
 
   static bool netServerGetInfo(const Reader& in, const std::string& name,
-                               Writer& w) {
+                               Writer<>& w) {
     size_t off = skipUniqueString(in, 0);
     uint32_t level = in.u32(off);
     if (in.hasError()) return false;

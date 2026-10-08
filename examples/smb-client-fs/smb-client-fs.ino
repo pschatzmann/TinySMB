@@ -19,7 +19,7 @@ SMBFS smbFS(smbClient);
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
   WiFi.begin(ssid, wifiPassword);
   while (WiFi.status() != WL_CONNECTED) delay(500);
   WiFi.setSleep(false);

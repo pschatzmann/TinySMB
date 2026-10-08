@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "SMBAuth.h"
+#include "SMBAlloc.h"
 #include "SMBBuffer.h"
 #include "SMBCrypto.h"
 #include "SMBDefs.h"
@@ -239,6 +240,11 @@ class SMBServer {
     bool deleteOnClose = false;
     uint32_t dirIndex = 0;
     std::string pattern;
+    PsramVector<FileInfo> dirEntries;  ///< cached listing (avoids
+                                       ///< re-scanning storage on every
+                                       ///< page); backing storage prefers
+                                       ///< PSRAM since it can grow large
+    bool dirListed = false;
     std::vector<uint8_t> pipeOut;
     Timing timing;
   };
@@ -251,7 +257,8 @@ class SMBServer {
 #endif
     }
     TClient client;
-    std::vector<uint8_t> rx;
+    PsramVector<uint8_t> rx;  ///< receive buffer: up to maxIO + 4096 bytes,
+                             ///< prefer PSRAM
     uint16_t dialect = 0;
     std::vector<Session> sessions;
     std::vector<Tree> trees;
@@ -293,8 +300,8 @@ class SMBServer {
   std::vector<std::unique_ptr<Connection>> connections;
   std::vector<Share> shares;
   std::vector<User> users;
-  std::vector<uint8_t> tx;  // shared response buffer
-  std::vector<uint8_t> resp;
+  PsramVector<uint8_t> tx;    // shared response buffer: prefer PSRAM
+  PsramVector<uint8_t> resp;  // prefer PSRAM (up to maxIO bytes)
   std::string serverName = "ARDUINO";
   std::string domainName = "WORKGROUP";
   uint8_t serverGuid[16] = {0};
@@ -354,7 +361,7 @@ class SMBServer {
       avail = c.client.available();
     }
     if (c.rx.empty() && c.rx.capacity() > 8192) {
-      std::vector<uint8_t>().swap(c.rx);
+      PsramVector<uint8_t>().swap(c.rx);
     }
     return true;
   }
@@ -416,7 +423,7 @@ class SMBServer {
     return sendResponses(c, {resp});
   }
 
-  bool sendResponses(Connection& c, const std::vector<std::vector<uint8_t>>& r) {
+  bool sendResponses(Connection& c, const std::vector<PsramVector<uint8_t>>& r) {
     tx.assign(4, 0);
     for (auto& part : r) tx.insert(tx.end(), part.begin(), part.end());
     size_t len = tx.size() - 4;
@@ -424,7 +431,7 @@ class SMBServer {
     tx[2] = (uint8_t)(len >> 8);
     tx[3] = (uint8_t)len;
     bool ok = send(c, tx.data(), tx.size());
-    if (tx.capacity() > 16384) std::vector<uint8_t>().swap(tx);
+    if (tx.capacity() > 16384) PsramVector<uint8_t>().swap(tx);
     return ok;
   }
 
@@ -434,7 +441,7 @@ class SMBServer {
     uint32_t startUs = micros();
     c.timedOpen = 0;
     c.storageUs = 0;
-    std::vector<std::vector<uint8_t>> responses;
+    std::vector<PsramVector<uint8_t>> responses;
     std::vector<SignInfo> signInfos;
     Request req;
     size_t off = 0;
@@ -627,7 +634,7 @@ class SMBServer {
 
   // ------------------------------------------------------- header + signing
 
-  void writeHeader(std::vector<uint8_t>& r, uint32_t pid, uint32_t status,
+  void writeHeader(PsramVector<uint8_t>& r, uint32_t pid, uint32_t status,
                    uint16_t command, uint16_t credits, uint16_t charge,
                    uint64_t messageId, uint32_t treeId, uint64_t sessionId,
                    uint32_t extraFlags = 0) {
@@ -693,7 +700,8 @@ class SMBServer {
 
   // ------------------------------------------------------------ negotiate
 
-  void writeNegotiateBody(Writer& w, uint16_t dialect) {
+  template <class Vec>
+  void writeNegotiateBody(Writer<Vec>& w, uint16_t dialect) {
     std::vector<uint8_t> token = NtlmAuth::negotiateToken();
     w.u16(65);
     w.u16(SMB2_NEGOTIATE_SIGNING_ENABLED |
@@ -1331,7 +1339,8 @@ class SMBServer {
   }
 
   /// Writes a single directory entry; returns the start of the entry
-  void writeDirEntry(Writer& w, uint8_t infoClass, const FileInfo& info,
+  template <class Vec>
+  void writeDirEntry(Writer<Vec>& w, uint8_t infoClass, const FileInfo& info,
                      const std::string& dirPath) {
     uint64_t t = toFileTime(info.modified);
     std::vector<uint8_t> name;
@@ -1395,9 +1404,42 @@ class SMBServer {
     if (restart) {
       o->dirIndex = 0;
       o->pattern = pattern;
+      o->dirListed = false;
+      o->dirEntries.clear();
     }
     bool first = o->dirIndex == 0;
     bool single = flags & SMB2_RETURN_SINGLE_ENTRY;
+
+    // Read the directory from storage only once per open and cache the
+    // (pattern-matched) entries; subsequent QUERY_DIRECTORY requests for
+    // the same open just page through the cache. Without this, clients
+    // that page large directories in several requests would cause an
+    // O(n^2) re-scan of storage (very slow on SD/FatFs).
+    std::string path = fsPath(*share, o->path);
+    if (!o->dirListed) {
+      o->dirListed = true;
+      if (!hasWildcards(o->pattern)) {
+        // lookup of a single name
+        FileInfo info;
+        std::string p = (path == "/" ? "" : path) + "/" + o->pattern;
+        if (share->fs->stat(p.c_str(), info)) {
+          info.name = o->pattern;
+          o->dirEntries.push_back(info);
+        }
+      } else {
+        FileInfo dot;
+        dot.isDirectory = true;
+        dot.name = ".";
+        o->dirEntries.push_back(dot);
+        dot.name = "..";
+        o->dirEntries.push_back(dot);
+        share->fs->listDir(path.c_str(), [&](const FileInfo& info) {
+          if (match(o->pattern.c_str(), info.name.c_str()))
+            o->dirEntries.push_back(info);
+          return true;
+        });
+      }
+    }
 
     Writer w(resp);
     w.u16(9);
@@ -1405,14 +1447,12 @@ class SMBServer {
     w.u32(0);  // length: patched
     const size_t start = resp.size();
     size_t lastEntry = 0;
-    uint32_t matched = 0;
     int added = 0;
     bool full = false;
     std::string dirPath = o->path;
 
-    auto emit = [&](const FileInfo& info) -> bool {
-      if (!match(o->pattern.c_str(), info.name.c_str())) return true;
-      if (matched++ < o->dirIndex) return true;
+    while (o->dirIndex < o->dirEntries.size()) {
+      const FileInfo& info = o->dirEntries[o->dirIndex];
       size_t before = resp.size();
       if (added > 0) w.align(8, start);
       size_t entry = resp.size();
@@ -1420,32 +1460,13 @@ class SMBServer {
       if (resp.size() - start > maxOut) {
         resp.resize(before);
         full = true;
-        return false;
+        break;
       }
       if (added > 0) w.put32(lastEntry, (uint32_t)(entry - lastEntry));
       lastEntry = entry;
       added++;
       o->dirIndex++;
-      return !single;
-    };
-
-    std::string path = fsPath(*share, o->path);
-    if (!hasWildcards(o->pattern)) {
-      // lookup of a single name
-      FileInfo info;
-      std::string p = (path == "/" ? "" : path) + "/" + o->pattern;
-      if (o->dirIndex == 0 && share->fs->stat(p.c_str(), info)) {
-        info.name = o->pattern;
-        emit(info);
-      }
-    } else {
-      FileInfo dot;
-      dot.isDirectory = true;
-      dot.name = ".";
-      bool more = emit(dot);
-      dot.name = "..";
-      if (more) more = emit(dot);
-      if (more) share->fs->listDir(path.c_str(), emit);
+      if (single) break;
     }
 
     if (added == 0) {
@@ -1458,14 +1479,16 @@ class SMBServer {
 
   // ------------------------------------------------------------ query info
 
-  void writeBasicInfo(Writer& w, const FileInfo& info) {
+  template <class Vec>
+  void writeBasicInfo(Writer<Vec>& w, const FileInfo& info) {
     uint64_t t = toFileTime(info.modified);
     for (int i = 0; i < 4; i++) w.u64(t);
     w.u32(attributes(info));
     w.u32(0);
   }
 
-  void writeStandardInfo(Writer& w, const FileInfo& info, bool deletePending) {
+  template <class Vec>
+  void writeStandardInfo(Writer<Vec>& w, const FileInfo& info, bool deletePending) {
     w.u64(allocationSize(info.size));
     w.u64(info.size);
     w.u32(1);
@@ -1481,7 +1504,7 @@ class SMBServer {
     return result;
   }
 
-  void writeSecurityDescriptor(Writer& w, bool isDir) {
+  void writeSecurityDescriptor(Writer<PsramVector<uint8_t>>& w, bool isDir) {
     const uint8_t everyone[12] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
     w.u8(1);  // revision
     w.u8(0);

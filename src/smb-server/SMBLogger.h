@@ -8,22 +8,23 @@ namespace smb {
 enum class SMBLogLevel { None = 0, Error, Info, Debug };
 
 /**
- * @brief Minimal logger: call SMBLogger::begin(Serial, SMBLogLevel::Info) to
- * activate the output.
+ * @brief Minimal logger: call SMBLogger.begin(Serial, SMBLogLevel::Info) to
+ * activate the output. `SMBLogger` is a ready-to-use static instance of
+ * `SMBLoggerClass`.
  */
-class SMBLogger {
+class SMBLoggerClass {
  public:
-  static void begin(Print& out, SMBLogLevel level = SMBLogLevel::Info) {
+  void begin(Print& out, SMBLogLevel level = SMBLogLevel::Info) {
     output() = &out;
     logLevel() = level;
   }
 
-  static bool isActive(SMBLogLevel level) {
+  bool isActive(SMBLogLevel level) {
     return output() != nullptr && level != SMBLogLevel::None &&
            level <= logLevel();
   }
 
-  static void log(SMBLogLevel level, const char* fmt, ...) {
+  void log(SMBLogLevel level, const char* fmt, ...) {
     if (!isActive(level)) return;
     char msg[160];
     va_list args;
@@ -38,15 +39,15 @@ class SMBLogger {
   }
 
  protected:
-  static Print*& output() {
+  Print*& output() {
     static Print* out = nullptr;
     return out;
   }
-  static SMBLogLevel& logLevel() {
+  SMBLogLevel& logLevel() {
     static SMBLogLevel level = SMBLogLevel::Info;
     return level;
   }
-  static const char* levelName(SMBLogLevel level) {
+  const char* levelName(SMBLogLevel level) {
     switch (level) {
       case SMBLogLevel::Error:
         return "E";
@@ -58,8 +59,11 @@ class SMBLogger {
   }
 };
 
+/// Static, ready-to-use logger instance: SMBLogger.begin(Serial, ...);
+static SMBLoggerClass SMBLogger;
+
 }  // namespace smb
 
-#define SMB_LOGE(...) smb::SMBLogger::log(smb::SMBLogLevel::Error, __VA_ARGS__)
-#define SMB_LOGI(...) smb::SMBLogger::log(smb::SMBLogLevel::Info, __VA_ARGS__)
-#define SMB_LOGD(...) smb::SMBLogger::log(smb::SMBLogLevel::Debug, __VA_ARGS__)
+#define SMB_LOGE(...) smb::SMBLogger.log(smb::SMBLogLevel::Error, __VA_ARGS__)
+#define SMB_LOGI(...) smb::SMBLogger.log(smb::SMBLogLevel::Info, __VA_ARGS__)
+#define SMB_LOGD(...) smb::SMBLogger.log(smb::SMBLogLevel::Debug, __VA_ARGS__)

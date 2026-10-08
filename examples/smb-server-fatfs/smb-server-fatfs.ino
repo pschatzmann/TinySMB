@@ -16,11 +16,11 @@ const uint8_t sdChipSelectPin = SS;
 
 WiFiServer wifiServer(SMB_DEFAULT_PORT);
 SMBServer<WiFiServer> smbServer(wifiServer);
-FileSystemFatFs fatFiles(*SD.getFatFs());  // SD: arduino-fatfs SDClass
+FileSystemFatFs fatFiles(*SD.getFatFs());  // SD: TinyFATFS SDClass
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
 
   if (!SD.begin(sdChipSelectPin)) {
     Serial.println("SD mount failed");

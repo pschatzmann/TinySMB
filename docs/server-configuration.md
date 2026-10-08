@@ -59,7 +59,7 @@ With the automatic setting, the size is 64 KB. On an ESP32 without PSRAM it is 3
 ## Logging
 
 ```cpp
-SMBLogger::begin(Serial, SMBLogLevel::Info);   // None, Error, Info, Debug
+SMBLogger.begin(Serial, SMBLogLevel::Info);   // None, Error, Info, Debug
 ```
 
 Logging is off until you call `begin()`.

@@ -26,6 +26,29 @@ Both implement the SMB 2.0.2 and 2.1 dialects with NTLMv2 authentication and mes
 - [Running on the Desktop](docs/desktop.md): CMake build with the Arduino Emulator, desktop examples and tests.
 - [Testing Status](docs/testing-status.md): what is tested, open tests and how to report results.
 
+## Logging
+
+Both the server and the client use a minimal, shared logger: a ready-to-use static instance `smb::SMBLogger` of class `smb::SMBLoggerClass`, writing to any Arduino `Print` destination (e.g. `Serial`). Logging is disabled by default; call `begin()` once to activate it:
+
+```cpp
+#include "SMB.h"
+
+void setup() {
+  Serial.begin(115200);
+  smb::SMBLogger.begin(Serial, smb::SMBLogLevel::Info);
+  // ...
+}
+```
+
+Available log levels (`smb::SMBLogLevel`), from least to most verbose:
+
+- `None` – logging disabled (default)
+- `Error` – only errors
+- `Info` – errors and informational messages
+- `Debug` – errors, info and detailed protocol/debug messages
+
+Internally, the library logs with the `SMB_LOGE`, `SMB_LOGI` and `SMB_LOGD` macros, which are no-ops when the corresponding level is not active, so leaving logging off (or at `Error`) has negligible overhead. See [docs/server-configuration.md](docs/server-configuration.md) for more on server-side logging configuration.
+
 
 ## Installation
 

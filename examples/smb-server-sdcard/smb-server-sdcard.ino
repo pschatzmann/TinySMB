@@ -1,9 +1,11 @@
 /**
  * @brief Exports a SD card (SD library) as network share.
  * Windows: \\<ip>\sd, macOS/Linux: smb://<ip>/sd
+ * @note the direcotry using the SD library is very slow, so 
+ * This implementation should be avoided.  
  */
+ 
 #include <WiFi.h>
-
 #include "SMB_SD.h"
 
 const char* ssid = "ssid";
@@ -19,7 +21,7 @@ SDCardFileSystem sdFiles(SD);
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
 
   if (!SD.begin(sdChipSelectPin)) {
     Serial.println("SD mount failed");

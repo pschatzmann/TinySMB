@@ -28,7 +28,7 @@ FileSystemFatFs fatFiles(fat);
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
   root = getenv("SMB_ROOT") ? getenv("SMB_ROOT") : ".";
   smbServer.addUser("user", "password");
   smbServer.addReadOnlyUser("reader", "secret");

@@ -20,7 +20,7 @@ SMBClient smbClient(client);
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
   if (!smbClient.begin(smbHost, smbShare, smbUser, smbPassword, smbDomain, smbPort)) exit(1);
 
   smbClient.listDir("/", [](const FileInfo& info) {

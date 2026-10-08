@@ -20,7 +20,7 @@ char cwd[512];
 
 void setup() {
   Serial.begin(115200);
-  SMBLogger::begin(Serial, SMBLogLevel::Info);
+  SMBLogger.begin(Serial, SMBLogLevel::Info);
   SD.begin();
   smbServer.addUser(smbUser, smbPassword);
   // the emulated SD library works on the local file system

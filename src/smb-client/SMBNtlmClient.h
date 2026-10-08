@@ -110,7 +110,7 @@ class NtlmClient {
   uint8_t exportedKey[16] = {0};
   bool useMic = false;
 
-  static void writeVersion(Writer& w) {
+  static void writeVersion(Writer<>& w) {
     const uint8_t version[8] = {10, 0, 0x61, 0x4A, 0, 0, 0, 15};
     w.bytes(version, 8);
   }
@@ -167,7 +167,7 @@ class NtlmClient {
     return r;
   }
 
-  static void field(Writer& w, size_t at, size_t offset, size_t len) {
+  static void field(Writer<>& w, size_t at, size_t offset, size_t len) {
     w.put16(at, (uint16_t)len);
     w.put16(at + 2, (uint16_t)len);
     w.put32(at + 4, (uint32_t)offset);

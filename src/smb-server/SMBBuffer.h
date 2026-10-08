@@ -88,11 +88,14 @@ class Reader {
 };
 
 /**
- * @brief Little endian writer which appends to (or patches) a std::vector
+ * @brief Little endian writer which appends to (or patches) a vector-like
+ * container. Templated on the container type so it also works with
+ * containers that use a non-default allocator (e.g. PsramVector).
  */
+template <class Vec = std::vector<uint8_t>>
 class Writer {
  public:
-  Writer(std::vector<uint8_t>& buf) : buf(buf) {}
+  Writer(Vec& buf) : buf(buf) {}
 
   size_t pos() const { return buf.size(); }
   void u8(uint8_t v) { buf.push_back(v); }
@@ -161,10 +164,10 @@ class Writer {
     put32(at + 4, (uint32_t)(v >> 32));
   }
 
-  std::vector<uint8_t>& buffer() { return buf; }
+  Vec& buffer() { return buf; }
 
  protected:
-  std::vector<uint8_t>& buf;
+  Vec& buf;
 };
 
 }  // namespace smb
