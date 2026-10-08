@@ -1,10 +1,16 @@
 #pragma once
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+#include <new>
 #include <vector>
 
 #if defined(ESP32)
 #include <esp_heap_caps.h>
+#if !__cpp_exceptions
+#include <Esp.h>
+#endif
 #endif
 
 namespace smb {
@@ -31,9 +37,27 @@ struct PsramAllocator {
   T* allocate(size_t n) {
     if (n == 0) return nullptr;
 #if defined(ESP32)
-    void* p = heap_caps_malloc(n * sizeof(T), MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+    void* p =
+        heap_caps_malloc(n * sizeof(T), MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
     if (p == nullptr)
       p = heap_caps_malloc(n * sizeof(T), MALLOC_CAP_8BIT);  // fallback
+    // std::vector (and other containers) never check the returned pointer
+    // for null: a failed allocation must be reported somehow, otherwise the
+    // container silently writes through a null pointer (a hard-to-diagnose
+    // crash). The Arduino ESP32 core builds without exception support
+    // (-fno-exceptions), so `throw std::bad_alloc()` isn't usable here -
+    // print a clear diagnostic and abort instead of crashing silently.
+#if __cpp_exceptions
+    if (p == nullptr) throw std::bad_alloc();
+#else
+    if (p == nullptr) {
+      printf("[SMB] out of memory: failed to allocate %u bytes (heap: %u, "
+             "psram: %u)\n",
+             (unsigned)(n * sizeof(T)), (unsigned)ESP.getFreeHeap(),
+             (unsigned)ESP.getFreePsram());
+      abort();
+    }
+#endif
     return static_cast<T*>(p);
 #else
     return static_cast<T*>(::operator new(n * sizeof(T)));

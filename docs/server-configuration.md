@@ -14,7 +14,7 @@ Call these methods on `SMBServer` before `begin()`. Users can also be changed wh
 | `setSigningRequired(required)` | `false` | Requires signed messages. Guests can't sign, so this needs a user login |
 | `setMaxClients(count)` | 4 | Maximum number of concurrent connections |
 | `setMaxIOSize(bytes)` | automatic | Maximum read/write size per request (see below) |
-| `setTimingLog(active)` | `false` | Logs where the time goes when a file that was read or written is closed (see [notes.md](notes.md#timing-log)) |
+| `setTimingLog(active, intervalMs)` | `false`, `0` | Logs where the time goes when a file that was read or written is closed, plus optional progress logging every `intervalMs` while a file stays open (see [notes.md](notes.md#timing-log)) |
 
 Several shares can use the same file system:
 

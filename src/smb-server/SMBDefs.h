@@ -135,6 +135,7 @@ enum FileInfoClass : uint8_t {
   FileNamesInformation = 12,
   FileDispositionInformation = 13,
   FilePositionInformation = 14,
+  FileFullEaInformation = 15,
   FileModeInformation = 16,
   FileAlignmentInformation = 17,
   FileAllInformation = 18,

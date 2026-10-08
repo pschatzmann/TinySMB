@@ -1,10 +1,8 @@
 /**
  * @brief Exports a SD card (SD library) as network share.
  * Windows: \\<ip>\sd, macOS/Linux: smb://<ip>/sd
- * @note the direcotry using the SD library is very slow, so 
- * This implementation should be avoided.  
  */
- 
+
 #include <WiFi.h>
 #include "SMB_SD.h"
 
@@ -13,7 +11,7 @@ const char* wifiPassword = "password";
 const char* smbUser = "user";
 const char* smbPassword = "password";
 const char* shareName = "sd";
-const uint8_t sdChipSelectPin = SS;
+const uint8_t sdChipSelectPin = 13;
 
 WiFiServer wifiServer(SMB_DEFAULT_PORT);
 SMBServer<WiFiServer> smbServer(wifiServer);
@@ -22,6 +20,9 @@ SDCardFileSystem sdFiles(SD);
 void setup() {
   Serial.begin(115200);
   SMBLogger.begin(Serial, SMBLogLevel::Info);
+
+  // Adapt the SPI pins to your board if the default pins are not usable (e.g. because
+  SPI.begin(14, 2, 15, sdChipSelectPin);  // SCK, MISO, MOSI, CS
 
   if (!SD.begin(sdChipSelectPin)) {
     Serial.println("SD mount failed");

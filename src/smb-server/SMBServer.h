@@ -142,8 +142,14 @@ class SMBServer {
 
   /// Logs (with level Info) a summary of the time spent for the storage, the
   /// processing and the network when a file which was read or written is
-  /// closed
-  void setTimingLog(bool active) { timingLog = active; }
+  /// closed. If intervalMs > 0, an additional progress line is logged while
+  /// a file is still open, at most every intervalMs milliseconds, which is
+  /// useful to monitor long transfers (e.g. large files kept open for a
+  /// while) instead of only seeing a summary once the file is closed.
+  void setTimingLog(bool active, uint32_t intervalMs = 0) {
+    timingLog = active;
+    timingLogIntervalMs = intervalMs;
+  }
 
   /// Starts the server
   bool begin() {
@@ -228,6 +234,7 @@ class SMBServer {
     uint64_t bytesRead = 0, bytesWritten = 0;
     uint64_t storageUs = 0, cpuUs = 0, sendUs = 0, receiveUs = 0;
     uint32_t startMs = 0;
+    uint32_t lastLogMs = 0;  ///< millis() of the last progress log line
   };
 
   struct Open {
@@ -316,6 +323,7 @@ class SMBServer {
   bool signingRequired = false;
   bool keepErrorBody = false;
   bool timingLog = false;
+  uint32_t timingLogIntervalMs = 0;  ///< setTimingLog() progress interval
 
   // ------------------------------------------------------------- transport
 
@@ -539,8 +547,10 @@ class SMBServer {
     c.timedOpen = o.id;
     Timing& t = o.timing;
     // start with the reception of the first request
-    if (t.reads == 0 && t.writes == 0)
+    if (t.reads == 0 && t.writes == 0) {
       t.startMs = millis() - (micros() - c.rxStartUs) / 1000;
+      t.lastLogMs = t.startMs;
+    }
     if (isRead) {
       t.reads++;
       if (bytes > 0) t.bytesRead += bytes;
@@ -548,9 +558,18 @@ class SMBServer {
       t.writes++;
       if (bytes > 0) t.bytesWritten += bytes;
     }
+    // optional progress log while a long transfer is still in progress
+    // (the final summary is logged separately when the file is closed)
+    if (timingLog && timingLogIntervalMs > 0) {
+      uint32_t now = millis();
+      if (now - t.lastLogMs >= timingLogIntervalMs) {
+        t.lastLogMs = now;
+        logTiming(o, "progress", 0);
+      }
+    }
   }
 
-  void logTiming(const Open& o, uint32_t closeUs) {
+  void logTiming(const Open& o, const char* label, uint32_t closeUs) {
     const Timing& t = o.timing;
     uint64_t bytes = t.bytesRead + t.bytesWritten;
     uint32_t ms = millis() - t.startMs;
@@ -561,8 +580,9 @@ class SMBServer {
     auto pct = [&](uint64_t us) {
       return wallUs ? (unsigned)(us * 100 / wallUs) : 0u;
     };
-    SMB_LOGI("timing %s: %u reads, %u writes, %llu bytes in %u ms (%u KB/s)",
-             o.path.c_str(), (unsigned)t.reads, (unsigned)t.writes,
+    SMB_LOGI("timing %s %s: %u reads, %u writes, %llu bytes in %u ms (%u "
+             "KB/s)",
+             label, o.path.c_str(), (unsigned)t.reads, (unsigned)t.writes,
              (unsigned long long)bytes, (unsigned)ms,
              ms ? (unsigned)(bytes / ms) : 0u);
     SMB_LOGI(
@@ -1134,7 +1154,7 @@ class SMBServer {
     if (!stillOpen) share.fs->close(path.c_str());
     // closing flushes the written data
     if (timingLog && (o.timing.reads || o.timing.writes))
-      logTiming(o, micros() - closeStartUs);
+      logTiming(o, "done", micros() - closeStartUs);
     if (o.deleteOnClose) {
       bool ok = o.isDir ? share.fs->rmdir(path.c_str())
                         : share.fs->remove(path.c_str());
@@ -1561,6 +1581,10 @@ class SMBServer {
         case FileModeInformation:
         case FileAlignmentInformation:
           w.u32(0);
+          break;
+        case FileFullEaInformation:
+          // no extended attributes: an empty FILE_FULL_EA_INFORMATION list
+          // is represented by a response with zero length (no entries)
           break;
         case FileAccessInformation:
           w.u32(0x001F01FF);

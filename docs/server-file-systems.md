@@ -8,6 +8,8 @@ The server accesses storage through the `FileSystem` interface. All paths start 
 
 Start the SD driver (`SD_MMC.begin()` or `SD.begin()`) before the clients connect.
 
+Tested on a real ESP32 with the SD library over SPI (`SMB_SD.h`/`SDCardFileSystem`), connected from Linux.
+
 On boards where the default SDMMC pins are not usable (e.g. they are shared with a camera, PSRAM/OPI flash, or other peripherals), construct `SDMMCFileSystem` with the pins for your board and call `logPinSetup()` from `setup()` (after `SMBLogger.begin()`) to confirm the assignment and the result of `SD_MMC.setPins()` in the log:
 
 ```cpp
@@ -63,6 +65,8 @@ The Arduino SD API has a few gaps:
 ## arduino-fatfs: `FileSystemFatFs`
 
 `FileSystemFatFs` (`SMB_FatFs.h`) uses the FatFs API of the [arduino-fatfs](https://github.com/pschatzmann/arduino-fatfs) library. It works with every arduino-fatfs driver: SD cards via SPI or SDMMC, RAM disks, disk images on the desktop … Unlike the Arduino SD API, it supports timestamps, the rename of files and directories, shrinking files and the free space.
+
+Tested on a real ESP32 with a SD card over SPI, connected from Linux.
 
 ```cpp
 #include <WiFi.h>
