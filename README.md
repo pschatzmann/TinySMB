@@ -1,6 +1,7 @@
-# Tiny Server Message Block (SMB)
+# Tiny Server Message Block (SMB) File Sharing Library
 
 [![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue.svg)](https://www.arduino.cc/reference/en/libraries/)
+[![Build: CMake](https://img.shields.io/badge/Build-CMake-064F8C.svg?logo=cmake)](CMakeLists.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 SMB (Server Message Block) is the network file sharing protocol of Windows. It is also supported by macOS, Linux, Android and iOS. A share appears as a network drive or folder, and clients can browse, open, copy, rename and delete the files on it.
