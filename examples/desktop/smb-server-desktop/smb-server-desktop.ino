@@ -8,16 +8,25 @@
 #include "SMB.h"
 #include "WiFi.h"
 
-WiFiServer wifiServer(4450);  // port 445 needs root permissions
+const uint16_t smbPort = 4450;  // port 445 needs root permissions
+const char* smbServerName = "DESKTOP";
+const char* smbUser = "user";
+const char* smbPassword = "password";
+const char* shareName = "share";
+const char* shareRoot = "/";
+const bool shareReadOnly = false;
+const char* shareComment = "Desktop share";
+
+WiFiServer wifiServer(smbPort);
 SMBServer<WiFiServer> smbServer(wifiServer);
 FileSystemPosix files(getenv("SMB_ROOT") ? getenv("SMB_ROOT") : ".");
 
 void setup() {
   Serial.begin(115200);
   SMBLogger::begin(Serial, SMBLogLevel::Info);
-  smbServer.setServerName("DESKTOP");
-  smbServer.addUser("user", "password");
-  smbServer.addShare("share", files, "/", false, "Desktop share");
+  smbServer.setServerName(smbServerName);
+  smbServer.addUser(smbUser, smbPassword);
+  smbServer.addShare(shareName, files, shareRoot, shareReadOnly, shareComment);
   smbServer.begin();
 }
 

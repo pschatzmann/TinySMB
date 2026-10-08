@@ -8,7 +8,12 @@
 #include "WiFi.h"  // include before SD.h
 #include "SMB_SD.h"
 
-WiFiServer wifiServer(4450);
+const uint16_t smbPort = 4450;
+const char* smbUser = "user";
+const char* smbPassword = "password";
+const char* shareName = "sd";
+
+WiFiServer wifiServer(smbPort);
 SMBServer<WiFiServer> smbServer(wifiServer);
 SDCardFileSystem sdFiles(SD);
 char cwd[512];
@@ -17,9 +22,9 @@ void setup() {
   Serial.begin(115200);
   SMBLogger::begin(Serial, SMBLogLevel::Info);
   SD.begin();
-  smbServer.addUser("user", "password");
+  smbServer.addUser(smbUser, smbPassword);
   // the emulated SD library works on the local file system
-  smbServer.addShare("sd", sdFiles, getcwd(cwd, sizeof(cwd)));
+  smbServer.addShare(shareName, sdFiles, getcwd(cwd, sizeof(cwd)));
   smbServer.begin();
 }
 

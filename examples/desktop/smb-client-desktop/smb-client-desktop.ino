@@ -8,13 +8,20 @@
 #include "SMB.h"
 #include "WiFi.h"
 
+const char* smbHost = "127.0.0.1";
+const char* smbShare = "share";
+const char* smbUser = "user";
+const char* smbPassword = "password";
+const char* smbDomain = "";
+const uint16_t smbPort = 4450;
+
 WiFiClient client;
 SMBClient smbClient(client);
 
 void setup() {
   Serial.begin(115200);
   SMBLogger::begin(Serial, SMBLogLevel::Info);
-  if (!smbClient.begin("127.0.0.1", "share", "user", "password", "", 4450)) exit(1);
+  if (!smbClient.begin(smbHost, smbShare, smbUser, smbPassword, smbDomain, smbPort)) exit(1);
 
   smbClient.listDir("/", [](const FileInfo& info) {
     Serial.print(info.isDirectory ? "<DIR> " : "      ");
