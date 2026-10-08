@@ -1,4 +1,4 @@
-# Arduino Server Message Block (SMB)
+# Tiny Server Message Block (SMB)
 
 [![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue.svg)](https://www.arduino.cc/reference/en/libraries/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
