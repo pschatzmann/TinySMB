@@ -4,9 +4,9 @@
 [![Build: CMake](https://img.shields.io/badge/Build-CMake-064F8C.svg?logo=cmake)](CMakeLists.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-SMB (Server Message Block) is the network file sharing protocol of Windows. It is also supported by macOS, Linux, Android and iOS. A share appears as a network drive or folder, and clients can browse, open, copy, rename and delete the files on it.
+__SMB__ (Server Message Block) is the __network file sharing protocol__ of Windows. It is also supported by macOS, Linux, Android and iOS. A share appears as a network drive or folder, and clients can browse, open, copy, rename and delete the files on it.
 
-This header-only library provides an SMB2 **server** and an SMB2 **client** for Arduino. Both use only the Arduino networking API (`Server`/`Client`), so they work with `WiFiServer`/`WiFiClient`, `EthernetServer`/`EthernetClient` and others. The main target is the ESP32.
+This __header-only C++ library__ provides an SMB2 **server** and an SMB2 **client** for Arduino. Both use only the Arduino networking API (`Server`/`Client`), so they work with `WiFiServer`/`WiFiClient`, `EthernetServer`/`EthernetClient` and others. The main target is the ESP32.
 
 | Component | What it does | Documentation |
 |---|---|---|
