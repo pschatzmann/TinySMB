@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 
+#include "../smb-server/SMBAlloc.h"
 #include "../smb-server/SMBBuffer.h"
 #include "../smb-server/SMBCrypto.h"
 #include "../smb-server/SMBDefs.h"
@@ -16,10 +17,6 @@
 #include "../smb-server/SMBLogger.h"
 #include "../smb-server/SMBPlatform.h"
 #include "SMBNtlmClient.h"
-
-#if defined(ESP32)
-#include <esp32-hal-psram.h>
-#endif
 
 namespace smb {
 
@@ -590,7 +587,7 @@ class SMBClient {
     if (limit == 0) {
       limit = 65536;
 #if defined(ESP32)
-      if (!psramFound()) limit = 32768;
+      if (!hasPsram()) limit = 32768;
 #endif
     }
     maxTransact = min32(r.u32(92), limit);

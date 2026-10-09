@@ -17,10 +17,6 @@
 #include "SMBPlatform.h"
 #include "SMBRpc.h"
 
-#if defined(ESP32)
-#include <esp32-hal-psram.h>
-#endif
-
 namespace smb {
 
 /// Exported directory
@@ -157,7 +153,7 @@ class SMBServer {
     if (maxIO == 0) {
       maxIO = 65536;
 #if defined(ESP32)
-      if (!psramFound()) maxIO = 32768;
+      if (!hasPsram()) maxIO = 32768;
 #endif
     }
     for (int i = 0; i < 16; i++) serverGuid[i] = Platform::randomByte();

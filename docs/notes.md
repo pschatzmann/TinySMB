@@ -75,9 +75,9 @@ every message.
 
 Each connection needs a few KB plus a receive buffer of up to the maximum IO size (32 KB on an ESP32 without PSRAM, 64 KB otherwise) while large requests are processed. The response buffer of the same size is shared by all connections. Reduce `setMaxClients()` or `setMaxIOSize()` if memory is short.
 
-On the ESP32, the server's larger buffers prefer PSRAM over internal RAM when it is available: the per-connection receive buffer, the shared response/send buffers and the cached directory listing used by `QUERY_DIRECTORY` (see [server-file-systems.md](server-file-systems.md)) all allocate through a PSRAM-aware allocator that falls back to internal RAM if PSRAM is absent or exhausted. This keeps scarce internal RAM available for the rest of the application on boards with PSRAM (`PSRAM=enabled` in the Arduino board options).
+On the ESP32 and on RP2350 boards with PSRAM, the server's larger buffers prefer PSRAM over internal RAM when it is available: the per-connection receive buffer, the shared response/send buffers and the cached directory listing used by `QUERY_DIRECTORY` (see [server-file-systems.md](server-file-systems.md)) all allocate through a PSRAM-aware allocator that falls back to internal RAM if PSRAM is absent or exhausted. This keeps scarce internal RAM available for the rest of the application on boards with PSRAM (ESP32: `PSRAM=enabled` in the Arduino board options; RP2350: select the `PSRAM CS` pin and `PSRAM Size` in the board options of the arduino-pico core, which defines `RP2350_PSRAM_CS`).
 
-If both the PSRAM and internal-RAM allocations fail (out of memory), the server aborts with a diagnostic log line instead of silently corrupting memory, since the Arduino ESP32 core normally builds without C++ exceptions:
+If both the PSRAM and internal-RAM allocations fail (out of memory), the server aborts with a diagnostic log line instead of silently corrupting memory, since the Arduino ESP32 and RP2040 cores normally build without C++ exceptions:
 
 ```
 [SMB] out of memory: failed to allocate 32768 bytes (heap: 4120, psram: 0)
