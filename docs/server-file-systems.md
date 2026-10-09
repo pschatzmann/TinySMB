@@ -62,9 +62,9 @@ The Arduino SD API has a few gaps:
 - There is no rename: files are renamed by copying, which is slow for large files. Directories can't be renamed.
 - Files can't be shrunk, except to size 0.
 
-## arduino-fatfs: `FileSystemFatFs`
+## TinyFATFS: `FileSystemFatFs`
 
-`FileSystemFatFs` (`SMB_FatFs.h`) uses the FatFs API of the [arduino-fatfs](https://github.com/pschatzmann/arduino-fatfs) library. It works with every arduino-fatfs driver: SD cards via SPI or SDMMC, RAM disks, disk images on the desktop … Unlike the Arduino SD API, it supports timestamps, the rename of files and directories, shrinking files and the free space.
+`FileSystemFatFs` (`SMB_FatFs.h`) uses the FatFs API of the [TinyFATFS](https://github.com/pschatzmann/TinyFATFS) library. It works with every arduino-fatfs driver: SD cards via SPI or SDMMC, RAM disks, disk images on the desktop … Unlike the Arduino SD API, it supports timestamps, the rename of files and directories, shrinking files and the free space.
 
 Tested on a real ESP32 with a SD card over SPI, connected from Linux.
 
