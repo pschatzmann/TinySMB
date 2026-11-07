@@ -1,6 +1,7 @@
 # Tiny Server Message Block (SMB) File Sharing Library
 
 [![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue.svg)](https://www.arduino.cc/reference/en/libraries/)
+[![Doxygen](https://img.shields.io/badge/API-Doxygen-blue.svg)](https://pschatzmann.github.io/TinySMB/html/)
 [![Build: CMake](https://img.shields.io/badge/Build-CMake-064F8C.svg?logo=cmake)](CMakeLists.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -10,21 +11,23 @@ This __header-only C++ library__ provides an SMB2 **server** and an SMB2 **clien
 
 | Component | What it does | Documentation |
 |---|---|---|
-| `SMBServer` | Shares an SD card (SD or SD_MMC), flash file system or directory with Windows, macOS and Linux | [docs/server.md](docs/server.md) |
-| `SMBClient` | Reads and writes the files on a Windows, macOS or Samba share; on the ESP32 also as `fs::FS` (`SMBFS`) | [docs/client.md](docs/client.md) |
+| [`SMBServer`](https://pschatzmann.github.io/TinySMB/html/classsmb_1_1_s_m_b_server.html) | Shares an SD card (SD or SD_MMC), flash file system or directory with Windows, macOS and Linux | [Server](https://github.com/pschatzmann/TinySMB/wiki/Server) |
+| [`SMBClient`](https://pschatzmann.github.io/TinySMB/html/classsmb_1_1_s_m_b_client.html) | Reads and writes the files on a Windows, macOS or Samba share; on the ESP32 also as `fs::FS` ([`SMBFS`](https://pschatzmann.github.io/TinySMB/html/classsmb_1_1_s_m_b_f_s.html)) | [Client](https://github.com/pschatzmann/TinySMB/wiki/Client) |
 
 Both implement the SMB 2.0.2 and 2.1 dialects with NTLMv2 authentication and message signing.
 
 ## Documentation
 
-- [Server](docs/server.md): features, file systems and an example.
-  - [Connecting to the Server](docs/server-connect.md): Windows, macOS and Linux, including mounting and troubleshooting.
-  - [Server Configuration](docs/server-configuration.md): users, guest access, shares, signing, limits and logging.
-  - [Server File Systems](docs/server-file-systems.md): the storage adapters, their limitations and how to write your own.
-- [Client](docs/client.md): API, ESP32 `fs::FS` integration, configuration and an example.
-- [Usage Notes](docs/notes.md): supported protocol features, security, performance and memory. Read this before using the library.
-- [Running on the Desktop](docs/desktop.md): CMake build with the Arduino Emulator, desktop examples and tests.
-- [Testing Status](docs/testing-status.md): what is tested, open tests and how to report results.
+The documentation is in the [Wiki](https://github.com/pschatzmann/TinySMB/wiki); the class reference is generated with Doxygen: [API documentation]().
+
+- [Server](https://github.com/pschatzmann/TinySMB/wiki/Server): features, file systems and an example.
+  - [Connecting to the Server](https://github.com/pschatzmann/TinySMB/wiki/Server-Connect): Windows, macOS and Linux, including mounting and troubleshooting.
+  - [Server Configuration](https://github.com/pschatzmann/TinySMB/wiki/Server-Configuration): users, guest access, shares, signing, limits and logging.
+  - [Server File Systems](https://github.com/pschatzmann/TinySMB/wiki/Server-File-Systems): the storage adapters, their limitations and how to write your own.
+- [Client](https://github.com/pschatzmann/TinySMB/wiki/Client): API, ESP32 `fs::FS` integration, configuration and an example.
+- [Usage Notes](https://github.com/pschatzmann/TinySMB/wiki/Usage-Notes): supported protocol features, security, performance and memory. Read this before using the library.
+- [Running on the Desktop](https://github.com/pschatzmann/TinySMB/wiki/Running-on-the-Desktop): CMake build with the Arduino Emulator, desktop examples and tests.
+- [Testing Status](https://github.com/pschatzmann/TinySMB/wiki/Testing-Status): what is tested, open tests and how to report results.
 
 ## Logging
 
@@ -47,7 +50,7 @@ Available log levels (`smb::SMBLogLevel`), from least to most verbose:
 - `Info` – errors and informational messages
 - `Debug` – errors, info and detailed protocol/debug messages
 
-Internally, the library logs with the `SMB_LOGE`, `SMB_LOGI` and `SMB_LOGD` macros, which are no-ops when the corresponding level is not active, so leaving logging off (or at `Error`) has negligible overhead. See [docs/server-configuration.md](docs/server-configuration.md) for more on server-side logging configuration.
+Internally, the library logs with the `SMB_LOGE`, `SMB_LOGI` and `SMB_LOGD` macros, which are no-ops when the corresponding level is not active, so leaving logging off (or at `Error`) has negligible overhead. See [Server Configuration](https://github.com/pschatzmann/TinySMB/wiki/Server-Configuration) for more on server-side logging configuration.
 
 
 ## Installation
