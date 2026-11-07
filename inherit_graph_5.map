@@ -1,0 +1,15 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="5,109,99,137"/>
+<area shape="rect" id="Node000001" href="$classsmb_1_1_file_system_f_s.html" title="FileSystem adapter for the ESP32 fs::FS API. This covers SD (SPI), SD_MMC, LittleFS,..." alt="" coords="182,31,290,58"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="87,99,146,69,183,57,179,60,148,74,90,103"/>
+<area shape="rect" id="Node000004" href="$classsmb_1_1_file_system_fat_fs.html" title="FileSystem adapter for the FatFs API of the arduino&#45;fatfs library (https://github...." alt="" coords="172,83,300,110"/>
+<area shape="poly" id="edge5_Node000000_Node000004" title=" " alt="" coords="113,112,174,104,170,107,115,117"/>
+<area shape="rect" id="Node000005" href="$classsmb_1_1_file_system_posix.html" title="FileSystem adapter using the POSIX API. This is used on the desktop (Arduino Emulator) but can also b..." alt="" coords="172,135,300,162"/>
+<area shape="poly" id="edge6_Node000000_Node000005" title=" " alt="" coords="114,129,173,138,169,141,114,134"/>
+<area shape="rect" id="Node000006" href="$classsmb_1_1_file_system_s_d.html" title="FileSystem adapter for the Arduino SD library API (SD.open(path, mode), File::seek(),..." alt="" coords="147,186,325,231"/>
+<area shape="poly" id="edge7_Node000000_Node000006" title=" " alt="" coords="92,142,148,171,176,185,171,186,146,176,91,148"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_s_d_card_file_system.html" title="Files on a SD card driven by the ESP32 SD (SPI) library." alt="" coords="374,5,516,33"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="304,34,376,27,372,29,306,39"/>
+<area shape="rect" id="Node000003" href="$classsmb_1_1_s_d_m_m_c_file_system.html" title="Files on a SD card driven by the SD_MMC library." alt="" coords="373,57,517,85"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="305,51,375,61,370,63,306,56"/>
+</map>

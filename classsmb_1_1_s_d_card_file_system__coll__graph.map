@@ -1,0 +1,19 @@
+<map id="SDCardFileSystem" name="SDCardFileSystem">
+<area shape="rect" id="Node000001" title="Files on a SD card driven by the ESP32 SD (SPI) library." alt="" coords="240,208,381,235"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system_f_s.html" title="FileSystem adapter for the ESP32 fs::FS API. This covers SD (SPI), SD_MMC, LittleFS,..." alt="" coords="200,115,309,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,154,305,208,300,207,269,158"/>
+<area shape="rect" id="Node000003" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="5,14,99,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,46,230,113,226,116,92,51"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="123,14,173,42"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="172,50,212,89,241,115,236,115,209,93,171,56"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="198,14,242,42"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="228,54,240,90,250,115,245,114,235,92,226,59"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="267,14,325,42"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="287,54,262,117,258,113,283,58"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="349,14,398,42"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="363,54,351,76,335,93,316,107,295,117,293,112,313,102,332,89,347,72,359,57"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="422,5,586,50"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="476,60,456,79,433,93,310,120,309,114,431,89,453,75,472,62"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="332,115,401,143"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="353,155,320,209,317,205,348,157"/>
+</map>

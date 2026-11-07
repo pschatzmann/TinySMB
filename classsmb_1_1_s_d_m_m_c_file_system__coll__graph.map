@@ -1,0 +1,22 @@
+<map id="SDMMCFileSystem" name="SDMMCFileSystem">
+<area shape="rect" id="Node000001" title="Files on a SD card driven by the SD_MMC library." alt="" coords="553,299,697,327"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system_f_s.html" title="FileSystem adapter for the ESP32 fs::FS API. This covers SD (SPI), SD_MMC, LittleFS,..." alt="" coords="224,118,333,146"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,151,418,208,544,273,597,299,591,298,541,277,415,212,314,156"/>
+<area shape="rect" id="Node000003" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="232,14,325,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,54,281,118,276,117,277,59"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,14,56,42"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="60,48,96,69,134,89,180,105,226,118,221,121,178,110,132,93,94,74,62,53"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="80,14,125,42"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="127,49,180,89,240,117,235,119,177,93,127,55"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="149,14,208,42"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="194,52,223,89,258,117,253,118,219,93,193,58"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="536,14,586,42"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="564,55,576,148,600,234,623,300,618,297,595,236,571,150,561,59"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="523,50,525,52,465,76,434,93,383,111,334,123,332,118,382,105,432,89,462,72,523,48,528,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="349,5,512,50"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="361,59,337,76,311,98,291,120,287,116,308,94,334,72,365,56"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="640,118,741,146"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="683,159,632,301,628,297,678,162"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="765,118,803,146"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="775,159,746,218,725,249,700,277,662,301,660,296,697,273,721,246,742,216,771,162"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="src/SMB.h" name="src/SMB.h">
+<area shape="rect" id="Node000001" title="Header&#45;only SMB2 (Windows file sharing) server and client for Arduino." alt="" coords="168,5,254,33"/>
+<area shape="rect" id="Node000002" href="$_s_m_b___fat_fs_8h.html" title="Support for the arduino&#45;fatfs library (https://github.com/pschatzmann/arduino&#45;fatfs): include this in..." alt="" coords="5,81,132,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,41,95,83,93,78,170,40"/>
+<area shape="rect" id="Node000003" href="$_s_m_b___s_d_8h.html" title="Support for the SD library: include this instead of SMB.h to export a SD card with SDCardFileSystem (..." alt="" coords="156,81,266,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,47,213,82,209,79,209,51"/>
+<area shape="rect" id="Node000004" href="$_s_m_b___s_d_m_m_c_8h.html" title="Support for the ESP32 SD_MMC library (SDMMC host): include this instead of SMB.h to export a SD card ..." alt="" coords="290,81,434,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="252,37,338,80,332,81,251,43"/>
+</map>

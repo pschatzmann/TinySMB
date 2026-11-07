@@ -1,0 +1,25 @@
+<map id="SMBServer&lt; TServer &gt;" name="SMBServer&lt; TServer &gt;">
+<area shape="rect" id="Node000001" title="SMB2 (dialect 2.0.2 and 2.1) file server which works with any Arduino network API server class (WiFiS..." alt="" coords="366,328,538,355"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="52,10,137,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,18,198,18,248,25,299,41,343,67,372,97,396,131,414,168,428,207,445,277,452,328,447,327,440,278,423,208,409,170,391,134,368,100,340,72,296,46,247,31,198,24,155,22"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="10,63,179,124"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,88,232,92,271,100,309,113,343,133,367,154,388,179,419,234,439,287,450,328,445,326,434,289,414,236,383,182,363,157,340,137,306,118,269,105,231,97,195,93"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="12,149,177,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,154,269,162,307,173,343,190,381,221,411,259,433,297,448,328,442,327,429,299,407,262,377,224,340,194,305,178,268,168,194,159"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="15,201,174,229"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="188,211,266,220,305,229,343,243,374,261,401,283,442,327,437,327,398,287,371,265,341,248,304,234,265,225,190,216"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,262,184,290"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="198,281,270,290,342,303,416,326,411,328,341,308,269,295,200,286"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="65,326,124,354"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="139,338,367,339,363,343,140,343"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="61,378,128,406"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="142,385,341,361,387,354,383,357,342,366,144,390"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="57,457,132,485"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="147,470,240,463,291,453,341,435,371,418,398,396,437,358,441,354,401,400,374,422,343,440,293,458,241,468,149,475"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="57,537,132,565"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="146,556,192,558,242,555,293,545,340,523,362,506,382,485,412,437,433,390,445,358,448,353,438,392,417,440,386,488,366,510,343,528,295,550,243,561,192,563,148,561"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="75,589,114,617"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="128,607,174,613,230,614,288,604,315,595,340,580,367,557,389,528,407,496,421,463,439,400,448,358,450,353,444,401,426,465,412,498,393,531,371,560,343,585,317,599,289,610,230,619,174,618,129,612"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="70,704,119,731"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="134,726,181,734,235,738,291,730,317,720,340,706,360,681,379,641,396,592,411,538,434,430,447,358,450,354,439,431,416,539,401,594,384,643,365,684,343,710,319,725,292,735,235,743,180,740,134,731"/>
+</map>

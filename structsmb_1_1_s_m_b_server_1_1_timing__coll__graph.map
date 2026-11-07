@@ -1,0 +1,7 @@
+<map id="SMBServer&lt; TServer &gt;::Timing" name="SMBServer&lt; TServer &gt;::Timing">
+<area shape="rect" id="Node000001" title="Statistics of the reads and writes of an open file (setTimingLog())" alt="" coords="14,183,172,228"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,80,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="37,46,36,101,39,130,47,158,65,182,60,183,42,160,33,131,30,101,36,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="107,5,181,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,46,133,101,117,160,107,184,103,181,112,158,128,100,138,51"/>
+</map>

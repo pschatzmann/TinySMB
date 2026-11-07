@@ -1,0 +1,9 @@
+<map id="FileSystemFS" name="FileSystemFS">
+<area shape="rect" id="Node000001" title="FileSystem adapter for the ESP32 fs::FS API. This covers SD (SPI), SD_MMC, LittleFS,..." alt="" coords="104,81,213,109"/>
+<area shape="rect" id="Node000003" href="$classsmb_1_1_s_d_card_file_system.html" title="Files on a SD card driven by the ESP32 SD (SPI) library." alt="" coords="5,157,147,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,119,92,158,89,154,130,120"/>
+<area shape="rect" id="Node000004" href="$classsmb_1_1_s_d_m_m_c_file_system.html" title="Files on a SD card driven by the SD_MMC library." alt="" coords="170,157,315,184"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="186,117,230,156,225,156,184,122"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="112,5,205,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,47,161,82,156,80,157,51"/>
+</map>

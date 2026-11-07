@@ -1,0 +1,7 @@
+<map id="User" name="User">
+<area shape="rect" id="Node000001" title="User credentials." alt="" coords="56,115,107,143"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,45,33,69,39,90,48,102,61,114,55,115,44,106,34,92,28,70,30,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,5,152,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,46,101,92,90,116,86,113,96,90,115,49"/>
+</map>

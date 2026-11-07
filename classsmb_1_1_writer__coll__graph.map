@@ -1,0 +1,5 @@
+<map id="Writer&lt; Vec &gt;" name="Writer&lt; Vec &gt;">
+<area shape="rect" id="Node000001" title="Little endian writer which appends to (or patches) a vector&#45;like container. Templated on the containe..." alt="" coords="24,98,138,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,157,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,47,84,98,78,97,79,50"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="FileSystemSD&lt; SDType, FileType &gt;" name="FileSystemSD&lt; SDType, FileType &gt;">
+<area shape="rect" id="Node000001" title="FileSystem adapter for the Arduino SD library API (SD.open(path, mode), File::seek(),..." alt="" coords="5,81,184,126"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="48,5,141,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,47,97,81,92,79,93,51"/>
+</map>

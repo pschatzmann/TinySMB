@@ -1,0 +1,19 @@
+<map id="src/smb&#45;server/SMBAlloc.h" name="src/smb&#45;server/SMBAlloc.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="182,5,377,33"/>
+<area shape="rect" id="Node000002" href="$_s_m_b_client_8h.html" title=" " alt="" coords="113,81,309,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,47,225,82,221,79,258,43"/>
+<area shape="rect" id="Node000008" href="$_s_m_b_server_8h.html" title=" " alt="" coords="341,157,545,184"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="305,41,431,156,426,157,303,46"/>
+<area shape="rect" id="Node000003" href="$_s_m_b_8h.html" title="Header&#45;only SMB2 (Windows file sharing) server and client for Arduino." alt="" coords="168,232,254,260"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="144,117,118,134,96,158,92,170,93,181,99,191,109,201,137,217,171,232,166,233,135,222,106,205,95,194,88,182,86,169,92,155,115,130,148,113"/>
+<area shape="rect" id="Node000007" href="$_s_m_b_client_f_s_8h.html" title=" " alt="" coords="106,157,317,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="212,122,214,157,209,155,210,127"/>
+<area shape="rect" id="Node000004" href="$_s_m_b___fat_fs_8h.html" title="Support for the arduino&#45;fatfs library (https://github.com/pschatzmann/arduino&#45;fatfs): include this in..." alt="" coords="5,308,132,336"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="175,268,95,310,93,305,170,267"/>
+<area shape="rect" id="Node000005" href="$_s_m_b___s_d_8h.html" title="Support for the SD library: include this instead of SMB.h to export a SD card with SDCardFileSystem (..." alt="" coords="156,308,266,336"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="213,274,213,309,209,306,209,278"/>
+<area shape="rect" id="Node000006" href="$_s_m_b___s_d_m_m_c_8h.html" title="Support for the ESP32 SD_MMC library (SDMMC host): include this instead of SMB.h to export a SD card ..." alt="" coords="290,308,434,336"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="252,264,338,307,332,308,251,270"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="213,198,214,233,209,231,210,202"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="385,191,254,234,252,229,390,188"/>
+</map>

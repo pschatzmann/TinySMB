@@ -1,0 +1,11 @@
+<map id="Crypto::Sha256" name="Crypto::Sha256">
+<area shape="rect" id="Node000001" title="Incremental SHA&#45;256 so that large SMB messages can be hashed in place." alt="" coords="124,98,244,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,80,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,39,165,96,161,99,75,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,5,170,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,45,180,98,175,97,149,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="195,5,269,33"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,46,193,100,189,96,215,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="293,5,352,33"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="298,42,253,76,211,100,209,95,250,72,293,44"/>
+</map>

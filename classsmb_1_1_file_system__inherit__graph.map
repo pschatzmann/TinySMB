@@ -1,0 +1,15 @@
+<map id="FileSystem" name="FileSystem">
+<area shape="rect" id="Node000001" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="329,5,423,33"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system_f_s.html" title="FileSystem adapter for the ESP32 fs::FS API. This covers SD (SPI), SD_MMC, LittleFS,..." alt="" coords="104,90,213,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,40,195,91,192,86,329,37"/>
+<area shape="rect" id="Node000005" href="$classsmb_1_1_file_system_fat_fs.html" title="FileSystem adapter for the FatFs API of the arduino&#45;fatfs library (https://github...." alt="" coords="236,90,364,117"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="356,43,314,91,310,87,351,46"/>
+<area shape="rect" id="Node000006" href="$classsmb_1_1_file_system_posix.html" title="FileSystem adapter using the POSIX API. This is used on the desktop (Arduino Emulator) but can also b..." alt="" coords="388,90,516,117"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="399,42,443,90,437,89,397,47"/>
+<area shape="rect" id="Node000007" href="$classsmb_1_1_file_system_s_d.html" title="FileSystem adapter for the Arduino SD library API (SD.open(path, mode), File::seek(),..." alt="" coords="540,81,718,126"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="432,36,565,80,559,81,431,41"/>
+<area shape="rect" id="Node000003" href="$classsmb_1_1_s_d_card_file_system.html" title="Files on a SD card driven by the ESP32 SD (SPI) library." alt="" coords="5,174,147,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="137,128,91,175,87,171,132,129"/>
+<area shape="rect" id="Node000004" href="$classsmb_1_1_s_d_m_m_c_file_system.html" title="Files on a SD card driven by the SD_MMC library." alt="" coords="170,174,315,201"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="184,126,232,173,227,173,182,131"/>
+</map>

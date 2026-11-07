@@ -1,0 +1,5 @@
+<map id="FileSystemPosix" name="FileSystemPosix">
+<area shape="rect" id="Node000001" title="FileSystem adapter using the POSIX API. This is used on the desktop (Arduino Emulator) but can also b..." alt="" coords="5,81,134,109"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="23,5,116,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,47,72,81,67,80,68,51"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="SMBServer&lt; TServer &gt;::Open" name="SMBServer&lt; TServer &gt;::Open">
+<area shape="rect" id="Node000001" title=" " alt="" coords="301,333,458,378"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,80,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,46,41,57,36,109,36,131,41,158,54,189,74,215,119,268,142,287,174,307,238,331,304,346,298,347,236,336,172,311,138,292,115,272,70,219,49,191,36,160,31,131,30,108,36,57,39,51"/>
+<area shape="rect" id="Node000008" href="$structsmb_1_1_s_m_b_server_1_1_timing.html" title="Statistics of the reads and writes of an open file (setTimingLog())" alt="" coords="145,186,212,214"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="43,46,54,103,64,132,81,157,94,170,111,179,147,192,142,195,109,184,91,174,76,161,59,134,48,104,42,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="187,5,261,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,43,253,56,266,100,269,137,271,173,284,216,301,249,322,281,362,333,357,332,317,284,296,252,279,218,266,174,263,137,261,101,248,58,244,48"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="189,45,183,58,173,92,171,128,178,186,173,185,165,128,168,91,178,56,192,41"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="351,186,409,214"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="382,228,382,334,377,332,378,231"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="432,186,482,214"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="456,227,448,269,430,310,409,335,407,330,426,308,443,268,452,231"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="506,186,723,214"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="609,227,590,272,576,293,558,311,535,326,510,337,460,350,459,345,509,332,532,321,554,307,572,290,586,269,604,230"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="747,186,884,214"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="795,224,742,271,709,293,674,311,620,330,563,343,459,355,458,350,562,338,618,325,672,307,707,289,739,267,790,226"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="179,227,186,270,194,290,206,307,227,323,250,335,303,351,298,351,248,340,224,328,203,311,189,292,181,271,176,232"/>
+</map>

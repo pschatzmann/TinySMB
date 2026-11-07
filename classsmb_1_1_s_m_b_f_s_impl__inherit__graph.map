@@ -1,0 +1,5 @@
+<map id="SMBFSImpl" name="SMBFSImpl">
+<area shape="rect" id="Node000001" title="fs::FSImpl on top of a SMBClient" alt="" coords="5,81,100,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="20,5,85,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,47,55,81,50,80,51,51"/>
+</map>

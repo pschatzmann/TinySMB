@@ -1,0 +1,7 @@
+<map id="SMBFile" name="SMBFile">
+<area shape="rect" id="Node000001" title="File or directory on a SMB share. It provides the Arduino File API: read and write are buffered; copi..." alt="" coords="80,115,154,143"/>
+<area shape="rect" id="Node000002" href="$class_stream.html" title=" " alt="" coords="5,14,74,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,51,110,114,104,116,57,56"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="98,5,291,50"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,61,129,117,125,113,166,63"/>
+</map>

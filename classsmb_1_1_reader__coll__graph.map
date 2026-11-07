@@ -1,0 +1,9 @@
+<map id="Reader" name="Reader">
+<area shape="rect" id="Node000001" title="Little endian reader on top of a byte range. Out of range reads return 0 and set the error flag so th..." alt="" coords="92,98,159,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,72,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,42,89,72,114,97,108,98,85,76,59,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,5,155,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,47,128,99,123,97,123,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="179,5,228,33"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,44,138,100,135,96,180,45"/>
+</map>

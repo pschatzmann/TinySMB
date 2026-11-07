@@ -1,0 +1,9 @@
+<map id="FileInfo" name="FileInfo">
+<area shape="rect" id="Node000001" title="Information about a file or directory." alt="" coords="77,115,146,143"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="43,45,55,68,68,89,94,114,88,115,63,93,50,71,42,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,5,136,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,47,114,116,109,114,110,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="180,5,254,33"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="213,46,204,72,190,93,170,108,148,119,146,114,167,104,186,89,200,69,209,50"/>
+</map>

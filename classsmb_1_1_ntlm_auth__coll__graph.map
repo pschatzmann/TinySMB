@@ -1,0 +1,11 @@
+<map id="NtlmAuth" name="NtlmAuth">
+<area shape="rect" id="Node000001" title="Server side NTLMSSP (NTLMv2) authentication wrapped in SPNEGO as used by SMB2 SESSION_SETUP...." alt="" coords="264,302,347,330"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,80,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="32,50,21,97,13,158,13,190,18,221,28,250,45,276,60,286,81,295,139,306,205,311,266,315,260,315,204,316,138,311,79,300,57,291,42,280,24,253,13,222,8,190,7,157,16,96,33,45"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="219,5,268,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,46,229,95,223,154,227,217,235,248,248,277,258,289,274,302,268,301,255,293,243,279,230,250,222,218,218,154,223,94,235,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="335,5,401,33"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="369,47,361,170,353,234,341,279,322,304,319,299,336,277,348,233,356,170,365,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="476,5,534,33"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="513,46,521,97,522,159,518,191,510,223,497,253,478,280,456,293,423,302,348,314,347,308,422,297,454,288,474,276,492,251,505,221,513,190,516,158,516,97,510,50"/>
+</map>

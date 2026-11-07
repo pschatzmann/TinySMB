@@ -1,0 +1,5 @@
+<map id="SMBFS" name="SMBFS">
+<area shape="rect" id="Node000001" title="SMB share as ESP32 file system: it can be used like SD or LittleFS." alt="" coords="5,81,71,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="19,5,57,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,47,41,81,35,80,36,51"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="FileSystemFS" name="FileSystemFS">
+<area shape="rect" id="Node000001" title="FileSystem adapter for the ESP32 fs::FS API. This covers SD (SPI), SD_MMC, LittleFS,..." alt="" coords="200,115,309,143"/>
+<area shape="rect" id="Node000002" href="$classsmb_1_1_file_system.html" title="Storage abstraction used by the SMB server. All paths are absolute (starting with &#39;/&#39;) and use &#39;/&#39; as..." alt="" coords="5,14,99,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,46,230,113,226,116,92,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="123,14,173,42"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,50,212,89,241,115,236,114,209,93,170,55"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="198,14,242,42"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="228,55,240,90,250,116,245,113,235,92,225,59"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="267,14,325,42"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="287,54,262,117,258,113,282,57"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="349,14,398,42"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="363,54,351,76,335,93,316,107,295,117,293,112,313,102,332,89,347,72,358,57"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="422,5,586,50"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="476,60,456,79,433,93,371,115,310,126,309,121,369,110,431,89,453,75,471,62"/>
+</map>
