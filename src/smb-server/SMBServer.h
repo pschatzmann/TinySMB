@@ -19,7 +19,9 @@
 
 namespace smb {
 
-/// Exported directory
+/**
+ * @brief Exported directory
+ */
 struct Share {
   std::string name;
   FileSystem* fs = nullptr;
@@ -206,6 +208,9 @@ class SMBServer {
   size_t clientCount() { return connections.size(); }
 
  protected:
+  /**
+   * @brief Authenticated SMB2 session of a client: the user's access rights, the signing key and the NTLM authentication state.
+   */
   struct Session {
     uint64_t id = 0;
     bool authenticated = false;
@@ -217,6 +222,9 @@ class SMBServer {
     NtlmAuth auth;
   };
 
+  /**
+   * @brief Tree connect: the mapping of a session to a share (or to the IPC$ pipe share).
+   */
   struct Tree {
     uint32_t id = 0;
     uint64_t sessionId = 0;
@@ -233,6 +241,9 @@ class SMBServer {
     uint32_t lastLogMs = 0;  ///< millis() of the last progress log line
   };
 
+  /**
+   * @brief Open file, directory or named pipe of a session, addressed by its SMB2 file id.
+   */
   struct Open {
     uint64_t id = 0;
     uint32_t treeId = 0;
@@ -252,6 +263,9 @@ class SMBServer {
     Timing timing;
   };
 
+  /**
+   * @brief State of one client connection: the receive buffer, the negotiated dialect and the sessions, tree connects and open files of the client.
+   */
   struct Connection {
     Connection(TClient& c) : client(c) {
 #if defined(IS_DESKTOP)

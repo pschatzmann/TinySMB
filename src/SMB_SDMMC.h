@@ -11,7 +11,9 @@
 
 namespace smb {
 
-/// Files on a SD card driven by the SD_MMC library
+/**
+ * @brief Files on a SD card driven by the SD_MMC library
+ */
 class SDMMCFileSystem : public FileSystemFS {
  public:
   // Note: this object is usually instantiated as a global, i.e. before

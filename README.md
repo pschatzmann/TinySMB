@@ -18,7 +18,7 @@ Both implement the SMB 2.0.2 and 2.1 dialects with NTLMv2 authentication and mes
 
 ## Documentation
 
-The documentation is in the [Wiki](https://github.com/pschatzmann/TinySMB/wiki); the class reference is generated with Doxygen: [API documentation]().
+The documentation is in the [Wiki](https://github.com/pschatzmann/TinySMB/wiki); the class reference is generated with Doxygen: [API documentation](https://pschatzmann.github.io/TinySMB/annotated.html).
 
 - [Server](https://github.com/pschatzmann/TinySMB/wiki/Server): features, file systems and an example.
   - [Connecting to the Server](https://github.com/pschatzmann/TinySMB/wiki/Server-Connect): Windows, macOS and Linux, including mounting and troubleshooting.

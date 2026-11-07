@@ -10,7 +10,9 @@
 
 namespace smb {
 
-/// User credentials
+/**
+ * @brief User credentials
+ */
 struct User {
   std::string name;
   std::string password;

@@ -7,7 +7,9 @@
 
 namespace smb {
 
-/// Information about a file or directory
+/**
+ * @brief Information about a file or directory
+ */
 struct FileInfo {
   std::string name;  ///< name without path
   bool isDirectory = false;

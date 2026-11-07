@@ -12,7 +12,9 @@ namespace smb {
 
 #if defined(ESP32)
 
-/// Files on a SD card driven by the ESP32 SD (SPI) library
+/**
+ * @brief Files on a SD card driven by the ESP32 SD (SPI) library
+ */
 class SDCardFileSystem : public FileSystemFS {
  public:
   explicit SDCardFileSystem(fs::SDFS& sd = SD) : FileSystemFS(sd), sd(sd) {}
@@ -29,7 +31,9 @@ class SDCardFileSystem : public FileSystemFS {
 
 #else
 
-/// Files on a SD card driven by the Arduino SD library
+/**
+ * @brief Files on a SD card driven by the Arduino SD library
+ */
 class SDCardFileSystem : public FileSystemSD<SDClass, File> {
  public:
   explicit SDCardFileSystem(SDClass& sd = SD) : FileSystemSD<SDClass, File>(sd) {}

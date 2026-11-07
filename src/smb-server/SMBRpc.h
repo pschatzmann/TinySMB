@@ -8,7 +8,9 @@
 
 namespace smb {
 
-/// Share description used by the RPC share enumeration
+/**
+ * @brief Share description used by the RPC share enumeration
+ */
 struct ShareEntry {
   std::string name;
   uint32_t type;  // 0 = disk, 0x80000003 = IPC$

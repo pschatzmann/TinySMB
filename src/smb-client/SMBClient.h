@@ -22,7 +22,9 @@ namespace smb {
 
 class SMBClient;
 
-/// SMB2 file id
+/**
+ * @brief SMB2 file id
+ */
 struct FileId {
   uint64_t persistent = ~0ULL;
   uint64_t volatileId = ~0ULL;
@@ -102,6 +104,9 @@ class SMBFile : public Stream {
 
  protected:
   friend class SMBClient;
+  /**
+   * @brief Shared state of an open file or directory: the position, the read and write buffers and, for directories, the cached listing. All copies of a SMBFile refer to the same handle; it is closed when the last copy is destroyed.
+   */
   struct Handle {
     ~Handle();
     SMBClient* client = nullptr;

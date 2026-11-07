@@ -7,7 +7,9 @@
 
 namespace smb {
 
-/// fs::FileImpl on top of a SMBFile
+/**
+ * @brief fs::FileImpl on top of a SMBFile
+ */
 class SMBFileImpl : public fs::FileImpl {
  public:
   SMBFileImpl(const SMBFile& file) : file(file), filePath(file.path()) {}
@@ -68,7 +70,9 @@ class SMBFileImpl : public fs::FileImpl {
   std::string filePath;
 };
 
-/// fs::FSImpl on top of a SMBClient
+/**
+ * @brief fs::FSImpl on top of a SMBClient
+ */
 class SMBFSImpl : public fs::FSImpl {
  public:
   SMBFSImpl(SMBClient& client) : client(client) {}
