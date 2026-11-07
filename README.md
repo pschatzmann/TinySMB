@@ -1,7 +1,7 @@
 # Tiny Server Message Block (SMB) File Sharing Library
 
 [![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue.svg)](https://www.arduino.cc/reference/en/libraries/)
-[![Doxygen](https://img.shields.io/badge/API-Doxygen-blue.svg)](https://pschatzmann.github.io/TinySMB/html/)
+[![Doxygen](https://img.shields.io/badge/API-Doxygen-blue.svg)](https://pschatzmann.github.io/TinySMB/)
 [![Build: CMake](https://img.shields.io/badge/Build-CMake-064F8C.svg?logo=cmake)](CMakeLists.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -11,8 +11,8 @@ This __header-only C++ library__ provides an SMB2 **server** and an SMB2 **clien
 
 | Component | What it does | Documentation |
 |---|---|---|
-| [`SMBServer`](https://pschatzmann.github.io/TinySMB/html/classsmb_1_1_s_m_b_server.html) | Shares an SD card (SD or SD_MMC), flash file system or directory with Windows, macOS and Linux | [Server](https://github.com/pschatzmann/TinySMB/wiki/Server) |
-| [`SMBClient`](https://pschatzmann.github.io/TinySMB/html/classsmb_1_1_s_m_b_client.html) | Reads and writes the files on a Windows, macOS or Samba share; on the ESP32 also as `fs::FS` ([`SMBFS`](https://pschatzmann.github.io/TinySMB/html/classsmb_1_1_s_m_b_f_s.html)) | [Client](https://github.com/pschatzmann/TinySMB/wiki/Client) |
+| [`SMBServer`](https://pschatzmann.github.io/TinySMB/classsmb_1_1_s_m_b_server.html) | Shares an SD card (SD or SD_MMC), flash file system or directory with Windows, macOS and Linux | [Server](https://github.com/pschatzmann/TinySMB/wiki/Server) |
+| [`SMBClient`](https://pschatzmann.github.io/TinySMB/classsmb_1_1_s_m_b_client.html) | Reads and writes the files on a Windows, macOS or Samba share; on the ESP32 also as `fs::FS` ([`SMBFS`](https://pschatzmann.github.io/TinySMB/classsmb_1_1_s_m_b_f_s.html)) | [Client](https://github.com/pschatzmann/TinySMB/wiki/Client) |
 
 Both implement the SMB 2.0.2 and 2.1 dialects with NTLMv2 authentication and message signing.
 
