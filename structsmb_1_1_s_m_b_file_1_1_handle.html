@@ -82,13 +82,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Shared state of an open file or directory: the position, the read and write buffers and, for directories, the cached listing. All copies of a <a class="el" href="classsmb_1_1_s_m_b_file.html" title="File or directory on a SMB share. It provides the Arduino File API: read and write are buffered; copi...">SMBFile</a> refer to the same handle; it is closed when the last copy is destroyed.  
+ <a href="structsmb_1_1_s_m_b_file_1_1_handle.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_s_m_b_client_8h_source.html">SMBClient.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for SMBFile::Handle:</div>
 <div class="dyncontent">
 <div class="center"><img src="structsmb_1_1_s_m_b_file_1_1_handle__coll__graph.png" border="0" usemap="#a_s_m_b_file_1_1_handle_coll__map" alt="Collaboration graph"/></div>
 <map name="a_s_m_b_file_1_1_handle_coll__map" id="a_s_m_b_file_1_1_handle_coll__map">
-<area shape="rect" title=" " alt="" coords="921,922,1048,949"/>
+<area shape="rect" title="Shared state of an open file or directory: the position, the read and write buffers and,..." alt="" coords="921,922,1048,949"/>
 <area shape="rect" href="classsmb_1_1_s_m_b_client.html" title="SMB2 (dialect 2.0.2 and 2.1) client which connects to a share of a Windows, macOS,..." alt="" coords="672,539,760,567"/>
 <area shape="poly" title=" " alt="" coords="738,576,811,672,899,795,977,922,972,921,895,798,807,676,737,582"/>
 <area shape="rect" title=" " alt="" coords="37,164,111,192"/>
@@ -183,7 +186,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0f34a6773b9be9d0d44ebad4070b973a" id="r_a0f34a6773b9be9d0d44ebad4070b973a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsmb_1_1_s_m_b_file_1_1_handle.html#a0f34a6773b9be9d0d44ebad4070b973a">writable</a> = <a class="el" href="structsmb_1_1_s_m_b_file_1_1_handle.html#a29479acf040b3b0c7fd6dfd898bbd243">false</a></td></tr>
 <tr class="separator:a0f34a6773b9be9d0d44ebad4070b973a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Shared state of an open file or directory: the position, the read and write buffers and, for directories, the cached listing. All copies of a <a class="el" href="classsmb_1_1_s_m_b_file.html" title="File or directory on a SMB share. It provides the Arduino File API: read and write are buffered; copi...">SMBFile</a> refer to the same handle; it is closed when the last copy is destroyed. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a346f5f532c6bee8a626656eb4906ec04" name="a346f5f532c6bee8a626656eb4906ec04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a346f5f532c6bee8a626656eb4906ec04">&#9670;&#160;</a></span>~Handle()</h2>
 

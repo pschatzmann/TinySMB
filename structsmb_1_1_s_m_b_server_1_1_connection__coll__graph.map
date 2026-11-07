@@ -1,5 +1,5 @@
 <map id="SMBServer&lt; TServer &gt;::Connection" name="SMBServer&lt; TServer &gt;::Connection">
-<area shape="rect" id="Node000001" title=" " alt="" coords="314,212,471,257"/>
+<area shape="rect" id="Node000001" title="State of one client connection: the receive buffer, the negotiated dialect and the sessions,..." alt="" coords="314,212,471,257"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="24,5,171,50"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,42,241,61,291,90,322,118,348,150,383,212,378,211,343,153,318,121,288,94,238,66,187,47"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="8,74,187,102"/>

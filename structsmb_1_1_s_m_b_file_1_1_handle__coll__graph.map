@@ -1,5 +1,5 @@
 <map id="SMBFile::Handle" name="SMBFile::Handle">
-<area shape="rect" id="Node000001" title=" " alt="" coords="921,922,1048,949"/>
+<area shape="rect" id="Node000001" title="Shared state of an open file or directory: the position, the read and write buffers and,..." alt="" coords="921,922,1048,949"/>
 <area shape="rect" id="Node000002" href="$classsmb_1_1_s_m_b_client.html" title="SMB2 (dialect 2.0.2 and 2.1) client which connects to a share of a Windows, macOS,..." alt="" coords="672,539,760,567"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="738,576,811,672,899,795,977,922,972,921,895,798,807,676,737,582"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="37,164,111,192"/>

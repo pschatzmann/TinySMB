@@ -1,5 +1,5 @@
 <map id="SMBServer&lt; TServer &gt;::Tree" name="SMBServer&lt; TServer &gt;::Tree">
-<area shape="rect" id="Node000001" title=" " alt="" coords="111,98,268,143"/>
+<area shape="rect" id="Node000001" title="Tree connect: the mapping of a session to a share (or to the IPC$ pipe share)." alt="" coords="111,98,268,143"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,5,80,33"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,40,119,72,156,97,151,98,116,76,72,45"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="104,5,178,33"/>

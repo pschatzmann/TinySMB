@@ -1,5 +1,5 @@
 <map id="SMBServer&lt; TServer &gt;::Session" name="SMBServer&lt; TServer &gt;::Session">
-<area shape="rect" id="Node000001" title=" " alt="" coords="102,452,260,497"/>
+<area shape="rect" id="Node000001" title="Authenticated SMB2 session of a client: the user&#39;s access rights, the signing key and the NTLM authen..." alt="" coords="102,452,260,497"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,331,80,358"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,370,73,399,95,426,130,451,125,452,91,430,68,402,54,375"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="126,5,175,33"/>

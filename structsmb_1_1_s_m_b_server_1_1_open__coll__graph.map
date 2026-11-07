@@ -1,5 +1,5 @@
 <map id="SMBServer&lt; TServer &gt;::Open" name="SMBServer&lt; TServer &gt;::Open">
-<area shape="rect" id="Node000001" title=" " alt="" coords="301,333,458,378"/>
+<area shape="rect" id="Node000001" title="Open file, directory or named pipe of a session, addressed by its SMB2 file id." alt="" coords="301,333,458,378"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,5,80,33"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,46,41,57,36,109,36,131,41,158,54,189,74,215,119,268,142,287,174,307,238,331,304,346,298,347,236,336,172,311,138,292,115,272,70,219,49,191,36,160,31,131,30,108,36,57,39,51"/>
 <area shape="rect" id="Node000008" href="$structsmb_1_1_s_m_b_server_1_1_timing.html" title="Statistics of the reads and writes of an open file (setTimingLog())" alt="" coords="145,186,212,214"/>
